@@ -6,6 +6,7 @@
 		(at-robby ?r)
 		(at ?b ?r)
 		(free ?g)
+		(used ?g)
 		(carry ?o ?g))
 
    (:action move
@@ -21,6 +22,7 @@
        :precondition  (and  (ball ?obj) (room ?room) (gripper ?gripper)
 			    (at ?obj ?room) (at-robby ?room) (free ?gripper))
        :effect (and (carry ?obj ?gripper)
+            (used ?gripper)
 		    (not (at ?obj ?room)) 
 		    (not (free ?gripper))))
 
