@@ -49,17 +49,18 @@ def wait_for_bus(state,a,x):
     state.loc['bus'] = x
     return state
 
-# Is the bus at the same location as the agent and is the agent at x? 
-# If so, change the bus and agent's location to the bus stop that serves the destination, 
+# Is the bus at the bus stop for x, and is the agent also at that bus stop?
+# If so, change the bus and agent's location to the bus stop that serves the destination,
 # set the amount owed to the bus driver, and return the new state;
 # If not, return False.
-def ride_bus(state,a,x,y):
-    if state.loc['bus']==x and state.loc[a]:
+def ride_bus(state, a, x, y):
+    if state.loc['bus'] == state.bus_stops[x] and state.loc[a] == state.bus_stops[x]:
         state.loc['bus'] = state.bus_stops[y]
         state.loc[a] = state.bus_stops[y]
         state.owe[a] = bus_rate(state.dist[x][y])
         return state
-    else: return False
+    else:
+        return False
 
 # Is the taxi at the same location as the agent and is the agent at x? 
 # If so, change the taxi and agent's location to y, set the amount owed to
@@ -128,7 +129,7 @@ pyhop.print_methods()
 # Create the initial state. 
 state1 = pyhop.State('state1')
 state1.loc = {'me':'home'}
-state1.cash = {'me':5}
+state1.cash = {'me':20}
 state1.owe = {'me':0}
 state1.dist = {'home':{'park':8, 'bus_stop_home':1, 'shops':15}, 'park':{'home':8, 'shops':8, 'bus_stop_park':1}, 'shops':{'home':14, 'park': 8, 'bus_stop_shops': 1}}
 state1.bus_stops = {'home':'bus_stop_home', 'park':'bus_stop_park', 'shops': 'bus_stop_shops'}
