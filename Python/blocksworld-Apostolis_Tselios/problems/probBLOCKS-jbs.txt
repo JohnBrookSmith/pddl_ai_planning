@@ -1,0 +1,6 @@
+(define (problem BLOCKS-JBS)
+(:domain BLOCKS)
+(:objects A B C D E)
+(:INIT (ON C A) (ON B C) (ONTABLE A) (ONTABLE D) (ONTABLE E) (CLEAR B) (CLEAR D) (CLEAR E) (HANDEMPTY))
+(:GOAL (AND (ON D E) (ON C D) (ON B C) (ON A B)))
+)

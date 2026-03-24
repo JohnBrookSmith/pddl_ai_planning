@@ -1,5 +1,5 @@
 (define 
-    (problem BLOCKS-10-0)
+    (problem BLOCKS-5-0)
     (:domain BLOCKS)
     (:objects A B C D E - blocks
               left-hand - hands)
