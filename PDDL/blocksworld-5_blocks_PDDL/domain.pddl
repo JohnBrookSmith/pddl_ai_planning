@@ -27,9 +27,9 @@
 	    :precondition (and (clear ?x) (ontable ?x) (handempty ?h))
 	    :effect
 	    	(and
-	    		;(not (ontable ?x)) 		; The block is not on the table anymore
-		   		;(not (clear ?x))		; The block is not clear anymore
-		   		;(not (handempty ?h)) 	; The hand is not empty anymore
+	    		(not (ontable ?x)) 		; The block is not on the table anymore
+		   		(not (clear ?x))		; The block is not clear anymore
+		   		(not (handempty ?h)) 	; The hand is not empty anymore
 		   		(holding ?h ?x)			; The hand is holding the block
 			)
 	)
@@ -41,7 +41,7 @@
 	    :precondition (holding ?h ?x)
 	    :effect
 	    	(and 
-	    		;(not (holding ?h ?x)) 	; The hand is not holding the block anymore
+	    		(not (holding ?h ?x)) 	; The hand is not holding the block anymore
 		   		(clear ?x)				; The block is clear
 		   		(handempty ?h)			; The hand is empty
 		   		(ontable ?x)			; The block is on the table
@@ -56,8 +56,8 @@
 	    :precondition (and (holding ?h ?x) (clear ?y))
 	    :effect
 		    (and 
-		    	;(not (holding ?h ?x)) 	; The hand is not holding the block anymore
-		   		;(not (clear ?y)) 		; The block that is being stacked on is not clear anymore
+		    	(not (holding ?h ?x)) 	; The hand is not holding the block anymore
+		   		(not (clear ?y)) 		; The block that is being stacked on is not clear anymore
 		   		(clear ?x)				; The block being stacked is clear
 		   		(handempty ?h)			; The hand is empty
 		   		(on ?x ?y)				; The block is on top of another block
@@ -74,9 +74,9 @@
 	    	(and 
 	    		(holding ?h ?x)			; The hand is holding the block		
 	    		(clear ?y)				; The block that the block was unstacked from is clear
-	    		;(not (clear ?x))		; The block that is being unstacked is not clear anymore
-	    		;(not (handempty ?h))	; The hand is not empty anymore
-	    		;(not (on ?x ?y))		; The block is not on top of another block anymore
+	    		(not (clear ?x))		; The block that is being unstacked is not clear anymore
+	    		(not (handempty ?h))	; The hand is not empty anymore
+	    		(not (on ?x ?y))		; The block is not on top of another block anymore
 			)
 	)
 )
