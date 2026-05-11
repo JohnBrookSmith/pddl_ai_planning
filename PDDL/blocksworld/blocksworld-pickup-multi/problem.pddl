@@ -1,0 +1,58 @@
+(define 
+    (problem blocks-multi)
+    (:domain blocksworld-pickup-multi)
+    ;(:objects D A H G B J E I F C - block)
+    (:objects D A B C - block)
+    (:INIT
+
+    (CLEAR A)
+    (CLEAR C)
+     ; E is the top of its stack
+    (ONTABLE B)
+    (ONTABLE D)
+     ; C is the base, not E
+    (ON A B)
+    (ON C D)        ; E on C, not C on E
+    (GOALSTACK A B)
+    (GOALSTACK B C)
+    (GOALSTACK C D)
+
+    (HANDEMPTY)
+
+        ;(CLEAR C)
+        ;(CLEAR F)
+        ;(ONTABLE I)
+        ;(ONTABLE F)
+        ;(ON C E)
+        ;(ON E J)
+        ;(ON J B)
+        ;(ON B G)
+        ;(ON G H)
+        ;(ON H A)
+        ;(ON A D)
+        ;(ON D I)
+        ;(GOALSTACK A B)
+        ;(GOALSTACK B C)
+        ;(GOALSTACK C D)
+        ;(GOALSTACK D E)
+        ;(GOALSTACK E F)
+        ;(GOALSTACK F G)
+        ;(GOALSTACK G H)
+        ;(GOALSTACK H I)
+        ;(GOALSTACK I J)
+        ;(HANDEMPTY)
+    )
+    (:goal 
+        (AND 
+            (ON A B)
+            (ON B C)
+            (ON C D)
+            ;(ON D E)
+            ;(ON E F)
+            ;(ON F G)
+            ;(ON G H)
+            ;(ON H I)
+            ;(ON I J)
+        )
+    )
+)
